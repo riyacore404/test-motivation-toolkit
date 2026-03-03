@@ -4,16 +4,16 @@
   "description": "Plays sounds and roasts you when your tests fail.",
   "version": "0.0.1",
   "publisher": "riyacore",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/riyacore/test-motivation-toolkit"
+  },
   "engines": { "vscode": "^1.90.0" },
   "categories": ["Other"],
-  "activationEvents": ["*"],
+  "activationEvents": ["onStartupFinished"],
   "enabledApiProposals": ["terminalDataWriteEvent"],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": [
-      { "command": "test-motivation-toolkit.setOpenAIKey", "title": "Test Motivation: Set OpenAI API Key" },
-      { "command": "test-motivation-toolkit.clearOpenAIKey", "title": "Test Motivation: Clear OpenAI API Key" }
-    ],
     "configuration": {
       "title": "Test Motivation Toolkit",
       "properties": {
