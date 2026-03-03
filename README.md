@@ -124,9 +124,11 @@ Add it to the `runnerConfigs` map in `src/detector/testDetector.ts`.
 
 ---
 
-## License
+## Legal
 
-MIT
+© 2024 riyacore. All rights reserved.
+This project is publicly viewable but not open source.
+No part of this codebase may be copied, modified, or distributed without explicit permission.
 
 ---
 
