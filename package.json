@@ -1,0 +1,43 @@
+{
+  "name": "test-motivation-toolkit",
+  "displayName": "Test Motivation Toolkit",
+  "description": "Plays sounds and roasts you when your tests fail.",
+  "version": "0.0.1",
+  "publisher": "riyacore",
+  "engines": { "vscode": "^1.90.0" },
+  "categories": ["Other"],
+  "activationEvents": ["*"],
+  "enabledApiProposals": ["terminalDataWriteEvent"],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "test-motivation-toolkit.setOpenAIKey", "title": "Test Motivation: Set OpenAI API Key" },
+      { "command": "test-motivation-toolkit.clearOpenAIKey", "title": "Test Motivation: Clear OpenAI API Key" }
+    ],
+    "configuration": {
+      "title": "Test Motivation Toolkit",
+      "properties": {
+        "test-motivation-toolkit.enableFailSound": { "type": "boolean", "default": true, "description": "Play a sound when tests fail." },
+        "test-motivation-toolkit.enableSuccessSound": { "type": "boolean", "default": false, "description": "Play a sound when tests pass." },
+        "test-motivation-toolkit.failSoundPath": { "type": "string", "default": "", "description": "Absolute path to a custom fail sound. Leave empty to use the built-in default." },
+        "test-motivation-toolkit.successSoundPath": { "type": "string", "default": "", "description": "Absolute path to a custom success sound. Leave empty to use the built-in default." },
+        "test-motivation-toolkit.enableRoastMode": { "type": "boolean", "default": false, "description": "Show roast messages when tests fail." },
+        "test-motivation-toolkit.cooldownMs": { "type": "number", "default": 3000, "minimum": 0, "description": "Minimum milliseconds between sound/roast triggers per terminal." },
+        "test-motivation-toolkit.openRouterApiKey": { "type": "string", "default": "", "description": "OpenRouter API key for AI-generated roasts." }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "npm run check-types && node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "package": "npm run check-types && node esbuild.js --production",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "22.x",
+    "@types/vscode": "^1.90.0",
+    "esbuild": "^0.21.0",
+    "typescript": "^5.4.0"
+  }
+}
